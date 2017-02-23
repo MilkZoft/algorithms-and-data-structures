@@ -26,8 +26,8 @@ describe('@Stack', () => {
       push('El Hobbit');               // [4]
 
       // The stack should have 5 elements (length)
-      const expectedResult = 5;
       const actualResult = size();
+      const expectedResult = 5;
 
       assert.isTrue(expectedResult === actualResult);
     });
@@ -40,8 +40,8 @@ describe('@Stack', () => {
 
     it('should remove and return the last element', () => {
       // Removing the last element
-      const expectedResult = pop();
-      const actualResult = 'El Hobbit';
+      const actualResult = pop();
+      const expectedResult = 'El Hobbit';
 
       assert.isTrue(size() === 4); // The size now should be 4
       assert.isTrue(expectedResult === actualResult); // The last element removed is 'El Hobbit'
@@ -55,8 +55,8 @@ describe('@Stack', () => {
 
     it('should return the last element', () => {
       // Getting the last element
-      const expectedResult = last();
-      const actualResult = 'El Alquimista';
+      const actualResult = last();
+      const expectedResult = 'El Alquimista';
 
       assert.isTrue(expectedResult === actualResult); // The last element is 'El Alquimista'
     });
@@ -69,8 +69,8 @@ describe('@Stack', () => {
 
     it('should return true if the stack has elements', () => {
       // The stack has elements?
-      const expectedResult = hasElements();
-      const actualResult = true;
+      const actualResult = hasElements();
+      const expectedResult = true;
 
       assert.isTrue(expectedResult === actualResult); // The sack has elements!
     });
@@ -83,8 +83,8 @@ describe('@Stack', () => {
 
     it('should return the current size of the stack', () => {
       // Getting the size of the actual stack
-      const expectedResult = size();
-      const actualResult = 4;
+      const actualResult = size();
+      const expectedResult = 4;
 
       assert.isTrue(expectedResult === actualResult); // The sack has 4 elements!
     });
@@ -99,8 +99,8 @@ describe('@Stack', () => {
       // Clear stack
       clear();
 
-      const expectedResult = 0;
       const actualResult = size();
+      const expectedResult = 0;
 
       assert.isTrue(expectedResult === actualResult); // The sack has 4 elements!
     });
@@ -117,8 +117,8 @@ describe('@Stack', () => {
       push(20);
       push(30);
 
-      const expectedResult = '10,20,30';
       const actualResult = print();
+      const expectedResult = '10,20,30';
 
       assert.isTrue(expectedResult === actualResult); // The new stack is [10, 20, 30]
     });

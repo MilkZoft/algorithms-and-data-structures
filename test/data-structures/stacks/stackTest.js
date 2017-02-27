@@ -102,7 +102,7 @@ describe('@Stack', () => {
       const actualResult = size();
       const expectedResult = 0;
 
-      assert.isTrue(expectedResult === actualResult); // The sack has 4 elements!
+      assert.isTrue(expectedResult === actualResult); // The sack has 0 elements!
     });
   });
 

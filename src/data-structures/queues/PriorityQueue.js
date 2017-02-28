@@ -7,12 +7,11 @@ export default function PriorityQueue() {
   }
 
   this.enqueue = (element, priority) => {
-    let queueElement = new QueueElement(element, priority);
+    const queueElement = new QueueElement(element, priority);
     let added = false;
 
     for (let i = 0; i < items.length; i++) {
       if (queueElement.priority < items[i].priority) {
-        // Inserting the element with high priority
         items.splice(i, 0, queueElement);
         added = true;
         break;
@@ -53,7 +52,7 @@ export default function PriorityQueue() {
     }
 
     return printStr;
-  }
+  };
 
   this.clear = () => {
     items = [];

@@ -23,7 +23,7 @@ export default function Queue() {
 
   this.print = () => {
     return items.toString();
-  }
+  };
 
   this.clear = () => {
     items = [];

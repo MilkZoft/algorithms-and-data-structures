@@ -9,7 +9,7 @@ describe('@HotPotato', () => {
 
     it('should get a winner from the hot potato game', () => {
       // HotPotato Players
-      let players = ['Carlos', 'Cristina', 'Javier', 'Jona', 'Sam'];
+      const players = ['Carlos', 'Cristina', 'Javier', 'Jona', 'Sam'];
 
       // The winner is...
       const actualResult = HotPotato(players, 7);

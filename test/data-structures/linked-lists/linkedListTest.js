@@ -1,4 +1,4 @@
-/* import '../../globalTest';
+import '../../globalTest';
 import LinkedList from '../../../src/data-structures/linked-Lists/LinkedList';
 
 const List = new LinkedList();
@@ -109,9 +109,11 @@ describe('@LinkedList', () => {
     });
 
     it('should return the current size of the queue', () => {
-      // Getting the size of the actual queue
+      // Getting the size of the actual list
       const actualResult = List.size();
       const expectedResult = 4;
+
+      assert.isTrue(expectedResult === actualResult);
     });
   });
 
@@ -120,9 +122,11 @@ describe('@LinkedList', () => {
       assert.typeOf(List.print, 'function', 'print should be a function');
     });
 
-    it('should print the current queue', () => {
+    it('should print the current list', () => {
+      const actualResult = List.print();
+      const expectedResult = '[0]20=>[1]15=>[2]13=>[3]12';
 
+      assert.isTrue(expectedResult === actualResult);
     });
   });
 });
-*/

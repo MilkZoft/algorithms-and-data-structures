@@ -35,7 +35,7 @@ describe('@Set', () => {
       const actualResult = set.delete(4);
       const expectedResult = true;
 
-      console.log(cyan, 'Current List ========> ', green, set.getItems());
+      console.log(cyan, 'Current Set ========> ', green, set.getItems());
 
       assert.isTrue(expectedResult === actualResult);
     });
@@ -55,6 +55,33 @@ describe('@Set', () => {
     });
   });
 
+  describe('#size', () => {
+    it('should be a function', () => {
+      assert.typeOf(set.size, 'function', 'size should be a function');
+    });
+
+    it('should return the current size of the queue', () => {
+      // Getting the size of the actual list
+      const actualResult = set.size();
+      const expectedResult = 4;
+
+      assert.isTrue(expectedResult === actualResult);
+    });
+  });
+
+  describe('#values', () => {
+    it('should be a function', () => {
+      assert.typeOf(set.values, 'function', 'print should be a function');
+    });
+
+    it('should print the current list', () => {
+      const actualResult = set.values();
+      const expectedResult = [1, 2, 3, 5];
+
+      assert.deepEqual(expectedResult, actualResult, 'expectedResult should match actualResult');
+    });
+  });
+
   describe('#clear', () => {
     it('should be a function', () => {
       assert.typeOf(set.clear, 'function', 'clear should be a function');
@@ -71,30 +98,115 @@ describe('@Set', () => {
     });
   });
 
-  /* describe('#values', () => {
+  describe('#union', () => {
     it('should be a function', () => {
-      assert.typeOf(set.values, 'function', 'print should be a function');
+      assert.typeOf(set.union, 'function', 'union should be a function');
     });
 
-    it('should print the current list', () => {
-      const actualResult = set.print();
-      const expectedResult = '[0]20=>[1]15=>[2]13=>[3]12';
+    it('should return the union of two sets', () => {
+      const setA = new Set();
 
-      assert.isTrue(expectedResult === actualResult);
+      setA.add(1);
+      setA.add(2);
+      setA.add(3);
+
+      const setB = new Set();
+
+      setB.add(4);
+      setB.add(5);
+      setB.add(6);
+
+      const unionAB = setA.union(setB);
+
+      // The union set should have [1, 2, 3, 4, 5, 6]
+      const actualResult = unionAB.values();
+      const expectedResult = [1, 2, 3, 4, 5, 6];
+
+      assert.deepEqual(expectedResult, actualResult, 'expectedResult should match actualResult');
     });
-  }); */
+  });
 
-  /* describe('#size', () => {
+  describe('#intersection', () => {
     it('should be a function', () => {
-      assert.typeOf(set.size, 'function', 'size should be a function');
+      assert.typeOf(set.union, 'function', 'intersection should be a function');
     });
 
-    it('should return the current size of the queue', () => {
-      // Getting the size of the actual list
-      const actualResult = set.size();
-      const expectedResult = 4;
+    it('should return the intersection of two sets', () => {
+      const setA = new Set();
 
-      assert.isTrue(expectedResult === actualResult);
+      setA.add(1);
+      setA.add(2);
+      setA.add(3);
+
+      const setB = new Set();
+
+      setB.add(2);
+      setB.add(3);
+      setB.add(4);
+
+      const intersectionAB = setA.intersection(setB);
+
+      // The intersection set should have [2, 3]
+      const actualResult = intersectionAB.values();
+      const expectedResult = [2, 3];
+
+      assert.deepEqual(expectedResult, actualResult, 'expectedResult should match actualResult');
     });
-  }); */
+  });
+
+  describe('#difference', () => {
+    it('should be a function', () => {
+      assert.typeOf(set.union, 'function', 'difference should be a function');
+    });
+
+    it('should return the difference of two sets', () => {
+      const setA = new Set();
+
+      setA.add(1);
+      setA.add(2);
+      setA.add(3);
+
+      const setB = new Set();
+
+      setB.add(2);
+      setB.add(3);
+      setB.add(4);
+
+      const differenceAB = setA.difference(setB);
+
+      // The difference set should have [1]
+      const actualResult = differenceAB.values();
+      const expectedResult = [1];
+
+      assert.deepEqual(expectedResult, actualResult, 'expectedResult should match actualResult');
+    });
+  });
+
+  describe('#subset', () => {
+    it('should be a function', () => {
+      assert.typeOf(set.union, 'function', 'subset should be a function');
+    });
+
+    it('should return the subset of two sets', () => {
+      const setA = new Set();
+
+      setA.add(1);
+      setA.add(2);
+
+      const setB = new Set();
+
+      setB.add(1);
+      setB.add(2);
+      setB.add(3);
+
+      const setC = new Set();
+
+      setB.add(2);
+      setB.add(3);
+      setB.add(4);
+
+      assert.isTrue(setA.subset(setB)); // Set A is subset of Set B (contains both values)
+      assert.isFalse(setA.subset(setC)); // Set A is not subset of Set C (just contains 2)
+    });
+  });
 });

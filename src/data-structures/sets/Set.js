@@ -1,56 +1,54 @@
-export default class LinkedList {
-  constructor() {
-    this.items = {};
-  }
+export default function Set() {
+  let items = {};
 
-  getItems() {
-    return this.items;
-  }
+  this.getItems = () => {
+    return items;
+  };
 
-  add(value) {
+  this.add = value => {
     if (!this.has(value)) {
-      this.items[value] = value;
+      items[value] = value;
 
       return true;
     }
 
     return false;
-  }
+  };
 
-  delete(value) {
+  this.delete = value => {
     if (this.has(value)) {
-      delete this.items[value];
+      delete items[value];
 
       return true;
     }
 
     return false;
-  }
+  };
 
-  has(value) {
-    return this.items.hasOwnProperty(value);
-  }
+  this.has = value => {
+    return items.hasOwnProperty(value);
+  };
 
-  clear() {
-    this.items = {};
-  }
+  this.clear = () => {
+    items = {};
+  };
 
-  size() {
-    return Object.keys(this.items).length;
-  }
+  this.size = () => {
+    return Object.keys(items).length;
+  };
 
-  values() {
+  this.values = () => {
     const values = [];
-    const keys = Object.keys(this.items);
+    const keys = Object.keys(items);
 
     for (let i = 0; i < keys.length; i++) {
-      value.push(this.items[keys[i]]);
+      values.push(items[keys[i]]);
     }
 
     return values;
-  }
+  };
 
-  union(otherSet) {
+  this.union = otherSet => {
     const unionSet = new Set();
     let values = this.values();
 
@@ -65,9 +63,9 @@ export default class LinkedList {
     }
 
     return unionSet;
-  }
+  };
 
-  intersection(otherSet) {
+  this.intersection = otherSet => {
     const intersectionSet = new Set();
     const values = this.values();
 
@@ -78,9 +76,9 @@ export default class LinkedList {
     }
 
     return intersectionSet;
-  }
+  };
 
-  difference(otherSet) {
+  this.difference = otherSet => {
     const differenceSet = new Set();
     const values = this.values();
 
@@ -91,9 +89,9 @@ export default class LinkedList {
     }
 
     return differenceSet;
-  }
+  };
 
-  subset(otherSet) {
+  this.subset = otherSet => {
     if (this.size() > otherSet.size()) {
       return false;
     } else {
@@ -107,5 +105,5 @@ export default class LinkedList {
 
       return true;
     }
-  }
+  };
 }

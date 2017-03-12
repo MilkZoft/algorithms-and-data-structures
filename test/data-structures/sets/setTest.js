@@ -118,6 +118,8 @@ describe('@Set', () => {
 
       const unionAB = setA.union(setB);
 
+      console.log(cyan, 'Current Set ========> ', green, unionAB.getItems());
+
       // The union set should have [1, 2, 3, 4, 5, 6]
       const actualResult = unionAB.values();
       const expectedResult = [1, 2, 3, 4, 5, 6];
@@ -146,6 +148,8 @@ describe('@Set', () => {
 
       const intersectionAB = setA.intersection(setB);
 
+      console.log(cyan, 'Current Set ========> ', green, intersectionAB.getItems());
+
       // The intersection set should have [2, 3]
       const actualResult = intersectionAB.values();
       const expectedResult = [2, 3];
@@ -173,6 +177,8 @@ describe('@Set', () => {
       setB.add(4);
 
       const differenceAB = setA.difference(setB);
+
+      console.log(cyan, 'Current Set ========> ', green, differenceAB.getItems());
 
       // The difference set should have [1]
       const actualResult = differenceAB.values();

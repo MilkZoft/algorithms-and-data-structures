@@ -71,10 +71,10 @@ describe('@Set', () => {
 
   describe('#values', () => {
     it('should be a function', () => {
-      assert.typeOf(set.values, 'function', 'print should be a function');
+      assert.typeOf(set.values, 'function', 'values should be a function');
     });
 
-    it('should print the current list', () => {
+    it('should return the current values in array', () => {
       const actualResult = set.values();
       const expectedResult = [1, 2, 3, 5];
 
@@ -88,7 +88,6 @@ describe('@Set', () => {
     });
 
     it('should clear the set', () => {
-      // Getting the first element
       set.clear();
 
       const actualResult = set.size();

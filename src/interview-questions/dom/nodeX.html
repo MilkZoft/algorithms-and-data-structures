@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NodeX</title>
+  </head>
+
+  <body>
+    <div id="root1">
+      <div>
+        <div></div>
+      </div>
+
+      <div>
+        <div id="node1"></div>
+        <div></div>
+      </div>
+    </div>
+
+    <div id="root2">
+      <div>
+        <div></div>
+      </div>
+
+      <div>
+        <div id="node2"></div>
+        <div></div>
+      </div>
+    </div>
+
+    <script>
+      // This function returns a real array of Nodes, so we can use methonds like "indexOf"
+      function getChildrenArray(node) {
+        return Array.from(node.children);
+      }
+
+      // This function returns an array of indices from given node to the root
+      function getPath(root, node) {
+        const path = [];
+        let currentElement = node;
+
+        // This is important as if a node is null or doesn't have a parent
+        // there is no need of searching further
+        while(currentElement !== root && currentElement && currentElement.parentNode) {
+          const childrenArray = getChildrenArray(currentElement.parentNode);
+          path.push(childrenArray.indexOf(currentElement));
+          currentElement = currentElement.parentNode;
+        }
+
+        return path;
+      }
+
+      // Popping all values from the array of indices we go to the symmetrical node
+      function getNodeByPath(root, path) {
+        let element = root;
+
+        while (path.length) {
+          let lastPath = path.pop();
+          let childrenArray = getChildrenArray(element);
+          element = childrenArray[lastPath];
+        }
+
+        return element;
+      }
+
+      // For convenience
+      function getSymmetricNode(root1, root2, node) {
+        const path = getPath(root1, node);
+        console.log('path', path);
+        return getNodeByPath(root2, path);
+      }
+
+      const root1 = document.getElementById('root1');
+      const root2 = document.getElementById('root2');
+      const node1 = document.getElementById('node1');
+      const node2 = document.getElementById('node2');
+
+      const nodeX = getSymmetricNode(root1, root2, node1);
+      console.log(nodeX, node2);
+      console.log(nodeX === node2); // true
+
+    </script>
+  </body>
+</html>

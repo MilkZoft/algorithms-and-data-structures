@@ -1,0 +1,35 @@
+<!--
+  Given a picture, how would you hide/show a child picture on hovering on this parent?
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Parent</title>
+      <style>
+        .parent {
+          background: #666;
+          height: 300px;
+          position: relative;
+        }
+
+        .parent .child {
+          display: none;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+
+        .parent:hover .child {
+          display: initial;
+        }
+      </style>
+    </head>
+  <body>
+    <div class="parent">
+      <img src="https://lh4.ggpht.com/wKrDLLmmxjfRG2-E-k5L5BUuHWpCOe4lWRF7oVs1Gzdn5e5yvr8fj-ORTlBF43U47yI=w300">
+
+      <img src="http://xiostorage.com/wp-content/uploads/2015/10/test.png" width="200" class="child">
+    </div>
+
+  </body>
+</html>

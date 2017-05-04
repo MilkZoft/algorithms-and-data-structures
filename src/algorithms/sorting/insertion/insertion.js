@@ -15,13 +15,14 @@ function insertionSort() {
   for (let i = 1; i < array.length; i++) {
     j = i;
     tmp = array[i];
-    console.log(j, tmp);
 
     while (j > 0 && array[j - 1] > tmp) {
       array[j] = array[j - 1];
+      console.log(array[j]);
       j--;
     }
-    console.log('J', j);
     array[j] = tmp;
+    console.log(array[j], 'Insertado');
+    console.log(array);
   }
 }
